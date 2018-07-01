@@ -1,12 +1,18 @@
-require ".lib/deck.rb"
+require "./lib/deck.rb"
 
 class Round
   def initialize(deck)
     @deck = deck
+    @deck_of_cards = @deck.cards
     @guesses = []
-    @current_card = deck.cards[0]
+    @index = 0
+    @current_card = @deck_of_cards[0]
     @correct_guesses = 0
     @incorrect_guesses = 0
+  end
+
+  def deck
+    @deck
   end
 
   def current_card
@@ -18,10 +24,12 @@ class Round
     @guesses << holder
     if holder.correct? == true
       @correct_guesses += 1
-      deck.rotate
+      @deck_of_cards = deck.cards.rotate
+      @current_card = @deck_of_cards[0]
     else
       @incorrect_guesses += 1
     end
+    holder
   end
 
   def guesses
@@ -33,6 +41,6 @@ class Round
   end
 
   def percent_correct
-    @correct_guesses / @guesses.length
-  end 
+    (((number_correct * 100.00) / (guesses.length * 100.00)) * 100).to_i
+  end
 end
