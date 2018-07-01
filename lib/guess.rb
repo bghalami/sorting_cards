@@ -3,12 +3,12 @@ require "./lib/card.rb"
 class Guess
   def initialize(guess, card)
     @guess = guess.upcase
-    @card = card
     @answer = "#{card.value.upcase} OF #{card.suit.upcase}"
+    @card = card
   end
 
   def card
-    @card 
+    @card
   end
 
   def response
