@@ -5,6 +5,10 @@ class Deck
     @cards = array
   end
 
+  def sort
+    
+  end
+
   def cards
     @cards
   end
