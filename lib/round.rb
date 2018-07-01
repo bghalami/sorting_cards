@@ -19,8 +19,8 @@ class Round
     @current_card
   end
 
-  def record_guess(guess)
-    holder = Guess.new(guess, @current_card)
+  def record_guess(guess_hash)
+    holder = Guess.new("#{guess_hash[:value]} of #{guess_hash[:suit]}", @current_card)
     @guesses << holder
     if holder.correct? == true
       @correct_guesses += 1
