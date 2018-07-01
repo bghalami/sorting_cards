@@ -3,13 +3,12 @@ require "./lib/card.rb"
 class Guess
   def initialize(guess, card)
     @guess = guess.upcase
-    @answer = card
+    @card = card
+    @answer = "#{card.value.upcase} OF #{card.suit.upcase}"
   end
 
-  new_card = "#{@answer.value.upcase} of #{@answer.suit.upcase}"
-
   def card
-    @answer
+    @card 
   end
 
   def response
@@ -17,7 +16,7 @@ class Guess
   end
 
   def correct?
-    if @guess == new_card
+    if @guess == @answer
       true
     else
       false
@@ -29,6 +28,6 @@ class Guess
       "Correct!"
     else
       "Incorrect."
+    end
   end
-  
 end
