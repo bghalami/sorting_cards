@@ -1,4 +1,7 @@
+require "pry"
+
  class Card
+   # attr_accessor :card_value, :number_value, :suit_value, :card_suit
    def initialize(value, suit)
      @card_value = value
      @number_value = 0
@@ -14,6 +17,7 @@
        @number_value = value
      end
 
+     @comparing_value = number_value
      @card_suit = suit
 
      @suit_value = 0
@@ -29,7 +33,11 @@
    end
 
    def suit_up
-     @number_value = number_value + suit_value
+     @comparing_value += suit_value
+   end
+
+   def comparing_value
+     @comparing_value
    end
 
    def number_value

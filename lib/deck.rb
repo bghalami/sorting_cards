@@ -12,7 +12,7 @@ class Deck
       (count - 1).times do |card|
       if @cards[card].number_value == @cards[card + 1].number_value
         @cards[card].suit_up
-          if @cards[card].number_value > @cards[card + 1].number_value
+          if @cards[card].comparing_value > @cards[card + 1].comparing_value
             @cards[card], @cards[card + 1] = @cards[card + 1], @cards[card]
             swapped = true
           end
