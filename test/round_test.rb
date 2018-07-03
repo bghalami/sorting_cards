@@ -31,7 +31,6 @@ class RoundTest < Minitest::Test
     card_3 = Card.new("6","Clubs")
     deck = Deck.new([card_1,card_2,card_3])
     round = Round.new(deck)
-    binding.pry
     round.record_guess({value: "3", suit: "Spades"})
     assert_equal 0, round.number_correct
     assert_equal card_1, round.current_card
