@@ -1,22 +1,15 @@
 require "./lib/card.rb"
 
 class Guess
-  def initialize(guess, card)
-    @guess = guess.upcase
-    @answer = "#{card.value.upcase} OF #{card.suit.upcase}"
+  attr_accessor :response, :answer, :card
+  def initialize(response, card)
+    @response = response
+    @answer = "#{card.value} of #{card.suit}"
     @card = card
   end
 
-  def card
-    @card
-  end
-
-  def response
-    @guess
-  end
-
   def correct?
-    if @guess == @answer
+    if @response == @answer
       true
     else
       false

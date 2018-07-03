@@ -21,14 +21,6 @@ class DeckTest < Minitest::Test
     assert_equal [card_2, card_1, card_3, card_5, card_4], deck.sort
   end
 
-  def test_cards
-    card_1 = Card.new("2","Spades")
-    card_2 = Card.new("2","Hearts")
-    card_3 = Card.new("6","Clubs")
-    deck = Deck.new([card_1,card_2,card_3])
-    assert_equal [card_1,card_2,card_3], deck.cards
-  end
-
   def test_count
     card_1 = Card.new("2","Spades")
     card_2 = Card.new("2","Hearts")

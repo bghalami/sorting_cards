@@ -1,43 +1,28 @@
 require "./lib/deck.rb"
 
 class Round
+  attr_accessor :deck, :deck_of_cards, :guesses, :index, :current_card, :number_correct, :incorrect_guesses
   def initialize(deck)
     @deck = deck
     @deck_of_cards = @deck.cards
     @guesses = []
     @index = 0
     @current_card = @deck_of_cards[0]
-    @correct_guesses = 0
+    @number_correct = 0
     @incorrect_guesses = 0
-  end
-
-  def deck
-    @deck
-  end
-
-  def current_card
-    @current_card
   end
 
   def record_guess(guess_hash)
     holder = Guess.new("#{guess_hash[:value]} of #{guess_hash[:suit]}", @current_card)
     @guesses << holder
     if holder.correct? == true
-      @correct_guesses += 1
-      @deck_of_cards = deck.cards.rotate
+      @number_correct += 1
+      @deck_of_cards = @deck_of_cards.rotate
       @current_card = @deck_of_cards[0]
     else
       @incorrect_guesses += 1
     end
     holder
-  end
-
-  def guesses
-    @guesses
-  end
-
-  def number_correct
-    @correct_guesses
   end
 
   def percent_correct
